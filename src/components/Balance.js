@@ -7,7 +7,7 @@ const Balance = (props) => (
     <View style={styles.container}>
         <Text style={styles.title}>{configApp.getTag('title_total_balance')}</Text>
         <Text style={styles.text}>R$ {format.currency(props.balance)}</Text>
-        <Text style={styles.slug}>Última transação em {props.date}</Text>
+        <Text style={styles.slug}>{configApp.getTag('last_transaction_in')} {props.date}</Text>
     </View>
 )
 
