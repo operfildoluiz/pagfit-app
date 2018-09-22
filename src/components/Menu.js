@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, ScrollView, Text } from 'react-native';
+import configApp from '../config/app';
 
 const Menu = (props) => (
     <ScrollView scrollsToTop={false} style={styles.menu}>
         <Text
             onPress={() => props.navigation.navigate('Dashboard')}
             style={styles.item}
-        >Saldo</Text>
+        >{configApp.getTag('header_dashboard')}</Text>
 
         <Text
-            onPress={() => props.navigation.navigate('ChargeForm')}
+            onPress={() => props.navigation.navigate('ChargeForm', { token: props.navigation.api_token })}
             style={styles.item}
-        >Recarga de Conta</Text>
+            >{configApp.getTag('header_charge')}</Text>
     </ScrollView>
 );
 

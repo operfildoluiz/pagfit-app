@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { AsyncStorage, View, StyleSheet } from 'react-native';
 import UserService from '../services/UserService';
 import Balance from '../components/Balance';
 import TransactionList from '../components/TransactionList';
 import Format from '../config/helper/format';
 import Menu from '../components/Menu';
 import SideMenu from 'react-native-side-menu';
+import configApp from '../config/app';
 
 export default class Dashboard extends Component {
 
@@ -17,7 +18,7 @@ export default class Dashboard extends Component {
             headerStyle: {
                 backgroundColor: '#0B8B40',
             },
-            headerTitle: 'Dashboard',
+            headerTitle: configApp.getTag('header_dashboard'),
         };
     };
 
@@ -27,54 +28,58 @@ export default class Dashboard extends Component {
         api_token: this.props.navigation.getParam('api_token'),
         transactions: null,
         isOpen: false,
-        selectedItem: 'Dashboard',        
+        selectedItem: 'Dashboard',
     };
 
     toggle() {
-      this.setState({
-        isOpen: !this.state.isOpen,
-      });
+        this.setState({
+            isOpen: !this.state.isOpen,
+        });
     }
-  
+
     updateMenuState(isOpen) {
-      this.setState({ isOpen });
+        this.setState({ isOpen });
     }
-  
+
     onMenuItemSelected = item =>
-      this.setState({
-        isOpen: false,
-        selectedItem: item,
-      });
+        this.setState({
+            isOpen: false,
+            selectedItem: item,
+        });
 
     componentDidMount() {
         let vm = this;
-        UserService.getUser(this.state.api_token).then(res => {
-            vm.setState({ user: res.data.data });
-        });
-        UserService.getHistory(this.state.api_token, this.daysHistory).then(res => {
-            vm.setState({
-                transactions: res.data.data,
-                date: res.data.data[0] !== undefined ? Format.date(res.data.data[res.data.data.length - 1].created_at) : vm.state.date
+
+        AsyncStorage.getItem('bearer', (err, result) => {
+
+            UserService.getUser(result).then(res => {
+                vm.setState({ user: res.data.data });
             });
+
+            UserService.getHistory(result, this.daysHistory).then(res => {
+                vm.setState({
+                    transactions: res.data.data,
+                    date: res.data.data[0] !== undefined ? Format.date(res.data.data[res.data.data.length - 1].created_at) : vm.state.date
+                });
+            });
+
         });
     }
 
     constructor(props) {
         super(props);
-
         this.toggle = this.toggle.bind(this);
-
     }
 
     render() {
         const menu = <Menu onItemSelected={this.onMenuItemSelected} navigation={this.props.navigation} />;
-  
+
         return (
-          <SideMenu
-            menu={menu}
-            isOpen={this.state.isOpen}
-            onChange={isOpen => this.updateMenuState(isOpen)}
-          >
+            <SideMenu
+                menu={menu}
+                isOpen={this.state.isOpen}
+                onChange={isOpen => this.updateMenuState(isOpen)}
+            >
                 <View style={styles.container}>
                     {this.state.user !== null && this.state.transactions !== null ?
                         <View style={{ width: '90%', marginTop: '5%', marginBottom: '5%', }}>

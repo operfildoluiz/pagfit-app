@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button, Text, TextInput, StyleSheet, Image } from 'react-native';
+import { AsyncStorage, View, Button, Text, TextInput, StyleSheet, Image } from 'react-native';
 import AuthService from '../services/AuthService';
 import { Buffer } from 'buffer';
 import configApp from '../config/app';
@@ -16,15 +16,16 @@ export default class Login extends Component {
     };
 
     handleSubmit() {
+        var vm = this;
 
         AuthService.login({
             cpf: this.state.cpf,
             password: Buffer.from(this.state.password).toString('base64')
         }).then((responseJson) => {
             if (responseJson.data.status === "success") {
-                this.props.navigation.navigate('Dashboard', {
-                    api_token: responseJson.data.data.api_token,
-                  });
+                AsyncStorage.setItem('bearer', responseJson.data.data.api_token, () => {
+                    vm.props.navigation.navigate('Dashboard');
+                });
             } else {
                 alert(configApp.getTag('fback_invalid_credentials'));
             }
