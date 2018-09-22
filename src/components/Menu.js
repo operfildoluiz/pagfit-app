@@ -13,7 +13,12 @@ const Menu = (props) => (
         <Text
             onPress={() => props.navigation.navigate('ChargeForm', { token: props.navigation.api_token })}
             style={styles.item}
-            >{configApp.getTag('header_charge')}</Text>
+        >{configApp.getTag('header_charge')}</Text>
+
+        <Text
+            onPress={() => props.navigation.navigate('PaylinkForm', { token: props.navigation.api_token })}
+            style={styles.item}
+        >{configApp.getTag('header_create_paylink')}</Text>
     </ScrollView>
 );
 

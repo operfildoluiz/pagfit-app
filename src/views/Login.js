@@ -24,7 +24,7 @@ export default class Login extends Component {
         }).then((responseJson) => {
             if (responseJson.data.status === "success") {
                 AsyncStorage.setItem('bearer', responseJson.data.data.api_token, () => {
-                    vm.props.navigation.navigate('Dashboard');
+                    vm.props.navigation.navigate('PaylinkForm');
                 });
             } else {
                 alert(configApp.getTag('fback_invalid_credentials'));

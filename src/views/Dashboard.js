@@ -27,7 +27,7 @@ export default class Dashboard extends Component {
         date: '10/09/2018',
         api_token: this.props.navigation.getParam('api_token'),
         transactions: null,
-        isOpen: false,
+        isOpen: true,
         selectedItem: 'Dashboard',
     };
 
