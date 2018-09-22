@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
-import UserService from '../services/UserService';
-import Balance from '../components/Balance';
-import TransactionList from '../components/TransactionList';
-import Format from '../config/helper/format';
+import { View, Text, StyleSheet } from 'react-native';
 import Menu from '../components/Menu';
 import SideMenu from 'react-native-side-menu';
 
-export default class Dashboard extends Component {
+export default class ChargeForm extends Component {
 
     daysHistory = 3;
 
@@ -17,7 +13,7 @@ export default class Dashboard extends Component {
             headerStyle: {
                 backgroundColor: '#0B8B40',
             },
-            headerTitle: 'Dashboard',
+            headerTitle: 'Recarga de conta',
         };
     };
 
@@ -27,7 +23,7 @@ export default class Dashboard extends Component {
         api_token: this.props.navigation.getParam('api_token'),
         transactions: null,
         isOpen: false,
-        selectedItem: 'Dashboard',        
+        selectedItem: 'ChargeForm',        
     };
 
     toggle() {
@@ -48,15 +44,7 @@ export default class Dashboard extends Component {
 
     componentDidMount() {
         let vm = this;
-        UserService.getUser(this.state.api_token).then(res => {
-            vm.setState({ user: res.data.data });
-        });
-        UserService.getHistory(this.state.api_token, this.daysHistory).then(res => {
-            vm.setState({
-                transactions: res.data.data,
-                date: res.data.data[0] !== undefined ? Format.date(res.data.data[res.data.data.length - 1].created_at) : vm.state.date
-            });
-        });
+        
     }
 
     constructor(props) {
@@ -67,7 +55,7 @@ export default class Dashboard extends Component {
     }
 
     render() {
-        const menu = <Menu onItemSelected={this.onMenuItemSelected} navigation={this.props.navigation} />;
+        const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
   
         return (
           <SideMenu
@@ -76,12 +64,7 @@ export default class Dashboard extends Component {
             onChange={isOpen => this.updateMenuState(isOpen)}
           >
                 <View style={styles.container}>
-                    {this.state.user !== null && this.state.transactions !== null ?
-                        <View style={{ width: '90%', marginTop: '5%', marginBottom: '5%', }}>
-                            <Balance balance={this.state.user.account.balance} date={this.state.date} />
-                            <TransactionList transactions={this.state.transactions} days={this.daysHistory} />
-                        </View>
-                        : null}
+                    <Text style={{padding: 10, fontSize: 24}}>AQUI UM FORM TOP PRA GERAR BOLETO</Text>
                 </View>
             </SideMenu>
         );
