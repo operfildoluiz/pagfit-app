@@ -5,14 +5,17 @@ const lang = {
     lbl_total_quota: 'Valor total',
     lbl_reference: 'Referência',
     lbl_limit: 'Limite de recebimento',
+    lbl_pincode: 'Pincode',
 
     ph_reference: 'ex: Casa Praia',
+    ph_pincode: '000 000 000',
 
     btn_login: 'Fazer login',
     btn_create_account: 'Criar minha conta agora',
     btn_create_billet: 'Gerar boleto',
     btn_create_paylink: 'Gerar link',
     btn_view_pdf: 'Visualizar PDF',
+    btn_pay: 'Pagar',
 
     title_total_balance: 'Saldo total',
     title_last_transactions: 'Últimas transações',
@@ -24,6 +27,9 @@ const lang = {
     header_charge: 'Recarga de conta',
     header_charge_confirm: 'Confirmação de emissão',
     header_create_paylink: 'Gerar link de pagamento',
+    header_paylink: 'Link de pagamento',
+    header_get_payment: 'Receber pagamento',
+    header_make_paylink: 'Realizar pagamento',
 
     fback_ops: 'Ops! Algo inesperado aconteceu',
     fback_invalid_credentials: 'Suas credenciais são inválidas',

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncStorage, View, StyleSheet } from 'react-native';
+import { AsyncStorage, View, StyleSheet, Text } from 'react-native';
 import UserService from '../services/UserService';
 import Balance from '../components/Balance';
 import TransactionList from '../components/TransactionList';
@@ -24,10 +24,10 @@ export default class Dashboard extends Component {
 
     state = {
         user: null,
-        date: '10/09/2018',
+        date: configApp.getTag('sometimes'),
         api_token: this.props.navigation.getParam('api_token'),
         transactions: null,
-        isOpen: true,
+        isOpen: false,
         selectedItem: 'Dashboard',
     };
 
@@ -84,7 +84,11 @@ export default class Dashboard extends Component {
                     {this.state.user !== null && this.state.transactions !== null ?
                         <View style={{ width: '90%', marginTop: '5%', marginBottom: '5%', }}>
                             <Balance balance={this.state.user.account.balance} date={this.state.date} />
-                            <TransactionList transactions={this.state.transactions} days={this.daysHistory} />
+
+                            <View>
+                                <TransactionList transactions={this.state.transactions} days={this.daysHistory} />
+                            </View>
+
                         </View>
                         : null}
                 </View>
