@@ -80,6 +80,8 @@ export default class PaylinkShare extends Component {
                                 style={styles.qr}
                             />
                         </View>
+                        <Text style={styles.slug}>{this.state.paylink.pincode}</Text>
+                        <Text style={styles.slug}>https://pagfit.me/{this.state.paylink.code}</Text>
                         <Text style={styles.text}>{this.state.paylink.reference}</Text>
                         <Text style={styles.title}>R$ {format.currency(this.state.paylink.quota)}</Text>
                         <Text style={styles.slug}>{this.state.paylink.description}</Text>

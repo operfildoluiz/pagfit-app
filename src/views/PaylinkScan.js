@@ -18,7 +18,7 @@ export default class PaylinkScan extends Component {
             headerStyle: {
                 backgroundColor: '#0B8B40',
             },
-            headerTitle: configApp.getTag('header_make_paylink'),
+            headerTitle: configApp.getTag('header_make_payment'),
         };
     };
 
@@ -63,9 +63,7 @@ export default class PaylinkScan extends Component {
     };
 
     handleSubmit() {
-        
-        alert('Proceder para a tela de digitar senha de 4 digitos')
-
+        this.props.navigation.navigate('Payauth', { paylink: this.state.code });
     }
 
     componentDidMount() {

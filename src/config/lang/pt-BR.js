@@ -2,6 +2,7 @@ const lang = {
 
     lbl_cpf: 'CPF',
     lbl_password: 'Senha',
+    lbl_4digit_password: 'Senha de quatro dígitos',
     lbl_total_quota: 'Valor total',
     lbl_reference: 'Referência',
     lbl_limit: 'Limite de recebimento',
@@ -29,13 +30,15 @@ const lang = {
     header_create_paylink: 'Gerar link de pagamento',
     header_paylink: 'Link de pagamento',
     header_get_payment: 'Receber pagamento',
-    header_make_paylink: 'Realizar pagamento',
+    header_make_payment: 'Realizar pagamento',
+    header_payauth: 'Autorizar pagamento',
 
     fback_ops: 'Ops! Algo inesperado aconteceu',
     fback_invalid_credentials: 'Suas credenciais são inválidas',
 
     //
     last_transaction_in: 'Última transação em',
+    sometimes: 'algum tempo atrás',
     you_can_pay_until: 'Você pode efetuar o pagamento em qualquer banco até',
     hp_charge_tax: 'Tarifas administrativas poderão ser acrescentadas ao valor',
     barcode: 'Linha digitável',

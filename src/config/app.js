@@ -5,7 +5,7 @@ const FALLBACK_LANG = 'pt-BR';
 const configApp = {
     loginRedirect: 'Dashboard',
     endpoint: {
-        api: "http://192.168.0.22:8000/api"
+        api: "http://192.168.0.13:8000/api"
     },
     lang: languages[FALLBACK_LANG],
     getTag: function(tag) {

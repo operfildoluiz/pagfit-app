@@ -48,6 +48,16 @@ export default class Dashboard extends Component {
         });
 
     componentDidMount() {
+        this.subs = [
+            this.props.navigation.addListener('didFocus', () => this.getData()),
+        ];
+    }
+
+    componentWillUnmount() {
+        this.subs.forEach(sub => sub.remove());
+    }
+
+    getData() {
         let vm = this;
 
         AsyncStorage.getItem('bearer', (err, result) => {
