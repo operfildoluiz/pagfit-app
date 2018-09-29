@@ -9,9 +9,11 @@ const lang = {
     lbl_limit: 'Limite de recebimento',
     lbl_pincode: 'Pincode',
     lbl_name: 'Nome',
-    lbl_city: 'Cidade',
+    lbl_bank_account: 'Conta bancária',
     lbl_city_state: 'Cidade/UF',
+    lbl_get_last_days: 'Capturar em dias',
 
+    ph_history_helper: 'ex: 30',
     ph_reference: 'ex: Casa Praia',
     ph_pincode: '000 000 000',
 
@@ -21,15 +23,19 @@ const lang = {
     btn_create_paylink: 'Gerar link',
     btn_view_pdf: 'Visualizar PDF',
     btn_pay: 'Pagar',
+    btn_request_withdrawal: 'Solicitar saque',
 
     title_total_balance: 'Saldo total',
     title_last_transactions: 'Últimas transações',
     title_last: 'Últimos',
     title_days: 'dias',   
     title_billet_created: 'Boleto criado',
+    title_billet_created: 'Solicitação enviada',
     
     header_dashboard: 'Dashboard',
     header_charge: 'Recarga de conta',
+    header_withdrawal: 'Saque para conta bancária',
+    header_withdrawal_confirm: 'Confirmação de solicitação de saque',
     header_charge_confirm: 'Confirmação de emissão',
     header_create_paylink: 'Gerar link de pagamento',
     header_paylink: 'Link de pagamento',
@@ -37,11 +43,14 @@ const lang = {
     header_make_payment: 'Realizar pagamento',
     header_payauth: 'Autorizar pagamento',
     header_payment_done: 'Confirmação de pagamento',
+    header_history: 'Extrato de transações',
 
     fback_ops: 'Ops! Algo inesperado aconteceu',
     fback_invalid_credentials: 'Suas credenciais são inválidas',
 
     //
+    identifier: 'Código de identificação',
+    withdrawal_release_date: 'Data prevista para liberação do saque',
     last_transaction_in: 'Última transação em',
     sometimes: 'algum tempo atrás',
     you_can_pay_until: 'Você pode efetuar o pagamento em qualquer banco até',
@@ -50,6 +59,7 @@ const lang = {
     billet_sent_by_email: 'Esse boleto também foi enviado para seu e-mail de cadastro',
     receipt_sent_by_email: 'Esse comprovante também foi enviado para seu e-mail de cadastro',
     hp_limit: 'Quantas pessoas podem realizar esse pagamento?',
+    hp_just_a_request: 'Lembre-se que essa é uma solicitação e deverá ser aprovada pelo nosso time',
     payment_done: 'Pagamento concluído',
 }
 

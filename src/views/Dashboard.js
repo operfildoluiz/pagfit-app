@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncStorage, View, StyleSheet, Text } from 'react-native';
+import { AsyncStorage, View, StyleSheet, ScrollView } from 'react-native';
 import UserService from '../services/UserService';
 import Balance from '../components/Balance';
 import TransactionList from '../components/TransactionList';
@@ -25,7 +25,6 @@ export default class Dashboard extends Component {
     state = {
         user: null,
         date: configApp.getTag('sometimes'),
-        api_token: this.props.navigation.getParam('api_token'),
         transactions: null,
         isOpen: false,
         selectedItem: 'Dashboard',
@@ -66,10 +65,10 @@ export default class Dashboard extends Component {
                 vm.setState({ user: res.data.data });
             });
 
-            UserService.getHistory(result, this.daysHistory).then(res => {
+            UserService.getHistory(result, this.daysHistory, 5).then(res => {
                 vm.setState({
-                    transactions: res.data.data,
-                    date: res.data.data[0] !== undefined ? Format.date(res.data.data[res.data.data.length - 1].created_at) : vm.state.date
+                    transactions: res.data,
+                    date: res.data[0] !== undefined ? Format.date(res.data[res.data.length - 1].created_at) : vm.state.date
                 });
             });
 
@@ -90,18 +89,18 @@ export default class Dashboard extends Component {
                 isOpen={this.state.isOpen}
                 onChange={isOpen => this.updateMenuState(isOpen)}
             >
-                <View style={styles.container}>
+                <ScrollView style={styles.container}>
                     {this.state.user !== null && this.state.transactions !== null ?
-                        <View style={{ width: '90%', marginTop: '5%', marginBottom: '5%', }}>
+                        <View style={{ marginTop: '5%', marginBottom: '5%', }}>
                             <Balance balance={this.state.user.account.balance} date={this.state.date} />
 
-                            <View>
+                            <View style={{ marginBottom: '5%', }}>
                                 <TransactionList transactions={this.state.transactions} days={this.daysHistory} />
                             </View>
 
                         </View>
                         : null}
-                </View>
+                </ScrollView>
             </SideMenu>
         );
     }
@@ -112,7 +111,6 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#ECF1F2',
         flex: 1,
-        alignItems: 'center'
     },
     button: {
         width: 300,

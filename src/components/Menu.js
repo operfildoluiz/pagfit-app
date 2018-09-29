@@ -11,9 +11,9 @@ const Menu = (props) => (
         >{configApp.getTag('header_dashboard')}</Text>
 
         <Text
-            onPress={() => props.navigation.navigate('ChargeForm', { token: props.navigation.api_token })}
+            onPress={() => props.navigation.navigate('HistoryScreen')}
             style={styles.item}
-        >{configApp.getTag('header_charge')}</Text>
+        >{configApp.getTag('header_history')}</Text>        
 
         <Text
             onPress={() => props.navigation.navigate('PaylinkForm', { token: props.navigation.api_token })}
@@ -24,6 +24,16 @@ const Menu = (props) => (
             onPress={() => props.navigation.navigate('PaylinkScan', { token: props.navigation.api_token })}
             style={styles.item}
         >{configApp.getTag('header_make_payment')}</Text>        
+
+        <Text
+            onPress={() => props.navigation.navigate('ChargeForm', { token: props.navigation.api_token })}
+            style={styles.item}
+        >{configApp.getTag('header_charge')}</Text>
+
+        <Text
+            onPress={() => props.navigation.navigate('WithdrawalForm', { token: props.navigation.api_token })}
+            style={styles.item}
+        >{configApp.getTag('header_withdrawal')}</Text>                
     </ScrollView>
 );
 

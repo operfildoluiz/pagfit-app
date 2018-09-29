@@ -1,15 +1,15 @@
 import React from 'react';
-import { ScrollView, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import configApp from '../config/app';
 import TransactionItem from './TransactionItem';
 
 const TransactionList = (props) => (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
         <Text style={styles.title}>{configApp.getTag('title_last_transactions')} ({configApp.getTag('title_last')} {props.days} {configApp.getTag('title_days')})</Text>
         {props.transactions.map((item, key) => (
             <TransactionItem item={item} key={key} />
         ))}
-    </ScrollView>
+    </View>
 )
 
 const styles = StyleSheet.create({

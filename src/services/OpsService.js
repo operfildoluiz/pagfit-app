@@ -9,6 +9,15 @@ const OpsService = (token => {
     });
   }
 
+  function scheduleWithdrawal(body, token) {
+    return server.post("/ops/withdrawal", body, {
+      headers: {
+        Authorization: token
+      }
+    });
+  }
+
+
   function getPayauthToken(body, token) {
     return server.post("/ops/auth", body, {
       headers: {
@@ -28,6 +37,7 @@ const OpsService = (token => {
   return {
     createBillet,
     getPayauthToken,
+    scheduleWithdrawal,
     pay
   };
 })();

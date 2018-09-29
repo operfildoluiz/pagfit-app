@@ -24,7 +24,7 @@ export default class Login extends Component {
         }).then((responseJson) => {
             if (responseJson.data.status === "success") {
                 AsyncStorage.setItem('bearer', responseJson.data.data.api_token, () => {
-                    vm.props.navigation.navigate(configApp.loginRedirect);
+                    vm.props.navigation.navigate(configApp.loginRedirect, {api_token: responseJson.data.data.api_token});
                 });
             } else {
                 alert(configApp.getTag('fback_invalid_credentials'));

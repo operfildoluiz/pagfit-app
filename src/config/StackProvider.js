@@ -1,4 +1,3 @@
-
 import { createStackNavigator } from 'react-navigation';
 import Login from './../views/Login';
 import Dashboard from './../views/Dashboard';
@@ -8,12 +7,13 @@ import PaylinkForm from '../views/PaylinkForm';
 import PaylinkShare from '../views/PaylinkShare';
 import PaylinkScan from '../views/PaylinkScan';
 import Payauth from '../views/Payauth';
-import Test from '../views/Test';
 import PayReceipt from '../views/PayReceipt';
+import WithdrawalForm from '../views/WithdrawalForm';
+import WithdrawalConfirm from '../views/WithdrawalConfirm';
+import HistoryScreen from '../views/HistoryScreen';
 
 const RootStack = createStackNavigator(
     {
-        Test: Test,
         Login: Login,
         Dashboard: Dashboard,
         ChargeForm: ChargeForm,
@@ -23,6 +23,9 @@ const RootStack = createStackNavigator(
         PaylinkScan: PaylinkScan,
         Payauth: Payauth,
         PayReceipt: PayReceipt,
+        WithdrawalForm: WithdrawalForm,
+        WithdrawalConfirm: WithdrawalConfirm,
+        HistoryScreen: HistoryScreen,
     },
     {
         initialRouteName: 'Login',

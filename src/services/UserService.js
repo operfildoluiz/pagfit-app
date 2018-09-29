@@ -9,11 +9,20 @@ const UserService = (token => {
     });
   }
 
-  function getHistory(token, from = 30) {
+  function getHistory(token, from = 30, take = 0) {
     return server.get("/user/history", {
       params: {
-        from
+        from,
+        take
       },
+      headers: {
+        Authorization: token
+      }
+    });
+  }
+
+  function getUserBankAccounts(token) {
+    return server.get("/bank_account", {
       headers: {
         Authorization: token
       }
@@ -23,7 +32,8 @@ const UserService = (token => {
 
   return {
     getUser,
-    getHistory
+    getHistory,
+    getUserBankAccounts
   };
 })();
 
