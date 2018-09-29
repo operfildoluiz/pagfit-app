@@ -10,8 +10,18 @@ const PaylinkService = (token => {
     });
   }
 
+  function getPaylink(code, token) {
+
+    return server.get("/paylink/" + code, {
+      headers: {
+        Authorization: token
+      }
+    });
+  }
+
   return {
-    createPaylink
+    createPaylink,
+    getPaylink
   };
 })();
 

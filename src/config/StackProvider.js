@@ -9,6 +9,7 @@ import PaylinkShare from '../views/PaylinkShare';
 import PaylinkScan from '../views/PaylinkScan';
 import Payauth from '../views/Payauth';
 import Test from '../views/Test';
+import PayReceipt from '../views/PayReceipt';
 
 const RootStack = createStackNavigator(
     {
@@ -21,6 +22,7 @@ const RootStack = createStackNavigator(
         PaylinkShare: PaylinkShare,
         PaylinkScan: PaylinkScan,
         Payauth: Payauth,
+        PayReceipt: PayReceipt,
     },
     {
         initialRouteName: 'Login',

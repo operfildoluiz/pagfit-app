@@ -5,6 +5,8 @@ import SideMenu from 'react-native-side-menu';
 import configApp from '../config/app';
 import OpsService from '../services/OpsService';
 import { Buffer } from 'buffer';
+import format from '../config/helper/format';
+import PaylinkService from '../services/PaylinkService';
 
 export default class Payauth extends Component {
 
@@ -49,23 +51,36 @@ export default class Payauth extends Component {
         var vm = this;
 
         AsyncStorage.getItem('bearer', (err, result) => {
+
             OpsService.getPayauthToken({
                 payauth_pincode: Buffer.from(this.state.password).toString('base64'),
             }, result).then(res => {
                 vm.setState({ password: '' });
-                if(res.data.data.payauth_token !== undefined) {
+                if (res.data.data.payauth_token !== undefined) {
                     OpsService.pay({
-                        paylink: this.state.paylink,
+                        paylink: this.state.paylink.code,
                         payauth_token: res.data.data.payauth_token
-                      }, result).then(res => {
-                        alert('Pagou, exibir comprovante');
-                      });
+                    }, result).then(res => {
+                        if (res.data.status === "fail") {
+                            alert('Sem saldo suficiente');
+                        } else {
+                            vm.props.navigation.navigate('PayReceipt', { pay: res.data.data });
+                        }
+                    });
                 } else {
                     alert('Senha invalida');
                 }
-                // vm.props.navigation.navigate('PaylinkShare', { paylink: res.data.data });
             })
 
+        });
+    }
+
+    componentDidMount() {
+        let vm = this;
+        AsyncStorage.getItem('bearer', (err, result) => {
+            PaylinkService.getPaylink(this.state.paylink, result).then(function (res) {
+                vm.setState({ paylink: res.data.data });
+            });
         });
     }
 
@@ -86,6 +101,11 @@ export default class Payauth extends Component {
             >
                 <View style={styles.container}>
                     <View style={styles.form}>
+
+                        <Text style={styles.p}><Text style={styles.text}>{this.state.paylink.reference}</Text></Text>
+                        <Text style={styles.p}><Text style={styles.title}>R$ {format.currency(this.state.paylink.quota)}</Text></Text>
+                        <Text style={styles.p}><Text style={styles.slug}>{this.state.paylink.description}</Text></Text>
+
                         <Text style={styles.label}>{configApp.getTag('lbl_4digit_password')}:</Text>
 
                         <TextInput
@@ -129,6 +149,30 @@ const styles = StyleSheet.create({
     },
     button: {
         width: '100%',
+    },
+    p: {
+        marginBottom: 10,
+        fontSize: 15,
+        color: '#C6BFBF'
+    },
+    text: {
+        color: '#4B4644',
+        textAlign: 'center',
+        fontSize: 28,
+        marginTop: 10,
+        marginBottom: 5,
+    },
+    title: {
+        color: '#4A3B4A',
+        textAlign: 'center',
+        fontSize: 16,
+        marginBottom: 5,
+    },
+    slug: {
+        color: '#C6BFBF',
+        textAlign: 'center',
+        fontSize: 15,
+        marginBottom: 15,
     },
     input: {
         backgroundColor: '#fff',

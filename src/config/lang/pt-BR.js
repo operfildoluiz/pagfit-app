@@ -5,8 +5,12 @@ const lang = {
     lbl_4digit_password: 'Senha de quatro dígitos',
     lbl_total_quota: 'Valor total',
     lbl_reference: 'Referência',
+    lbl_description: 'Descrição',
     lbl_limit: 'Limite de recebimento',
     lbl_pincode: 'Pincode',
+    lbl_name: 'Nome',
+    lbl_city: 'Cidade',
+    lbl_city_state: 'Cidade/UF',
 
     ph_reference: 'ex: Casa Praia',
     ph_pincode: '000 000 000',
@@ -32,6 +36,7 @@ const lang = {
     header_get_payment: 'Receber pagamento',
     header_make_payment: 'Realizar pagamento',
     header_payauth: 'Autorizar pagamento',
+    header_payment_done: 'Confirmação de pagamento',
 
     fback_ops: 'Ops! Algo inesperado aconteceu',
     fback_invalid_credentials: 'Suas credenciais são inválidas',
@@ -43,7 +48,9 @@ const lang = {
     hp_charge_tax: 'Tarifas administrativas poderão ser acrescentadas ao valor',
     barcode: 'Linha digitável',
     billet_sent_by_email: 'Esse boleto também foi enviado para seu e-mail de cadastro',
+    receipt_sent_by_email: 'Esse comprovante também foi enviado para seu e-mail de cadastro',
     hp_limit: 'Quantas pessoas podem realizar esse pagamento?',
+    payment_done: 'Pagamento concluído',
 }
 
 
