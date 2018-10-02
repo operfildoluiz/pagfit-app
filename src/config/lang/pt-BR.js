@@ -12,6 +12,9 @@ const lang = {
     lbl_bank_account: 'Conta bancária',
     lbl_city_state: 'Cidade/UF',
     lbl_get_last_days: 'Capturar em dias',
+    lbl_agency_number: 'Número da agência',
+    lbl_account_number: 'Número da conta',
+    lbl_bank_code: 'Código BACEN do banco',
 
     ph_history_helper: 'ex: 30',
     ph_reference: 'ex: Casa Praia',
@@ -23,6 +26,8 @@ const lang = {
     btn_create_paylink: 'Gerar link',
     btn_view_pdf: 'Visualizar PDF',
     btn_pay: 'Pagar',
+    btn_save: 'Salvar',
+    btn_delete: 'Excluir',
     btn_request_withdrawal: 'Solicitar saque',
 
     title_total_balance: 'Saldo total',
@@ -44,6 +49,8 @@ const lang = {
     header_payauth: 'Autorizar pagamento',
     header_payment_done: 'Confirmação de pagamento',
     header_history: 'Extrato de transações',
+    header_bank_accounts: 'Contas bancárias',
+    header_manage_bank_account: 'Gerenciar conta bancária',
 
     fback_ops: 'Ops! Algo inesperado aconteceu',
     fback_invalid_credentials: 'Suas credenciais são inválidas',

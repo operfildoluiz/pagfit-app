@@ -33,7 +33,12 @@ const Menu = (props) => (
         <Text
             onPress={() => props.navigation.navigate('WithdrawalForm', { token: props.navigation.api_token })}
             style={styles.item}
-        >{configApp.getTag('header_withdrawal')}</Text>                
+        >{configApp.getTag('header_withdrawal')}</Text>          
+
+        <Text
+            onPress={() => props.navigation.navigate('BankAccountScreen', { token: props.navigation.api_token })}
+            style={styles.item}
+        >{configApp.getTag('header_bank_accounts')}</Text>   
     </ScrollView>
 );
 

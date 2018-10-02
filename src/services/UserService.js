@@ -29,11 +29,46 @@ const UserService = (token => {
     });
   }
 
+  function getBankAccount(token, id) {
+    return server.get("/bank_account/" + id, {
+      headers: {
+        Authorization: token
+      }
+    });
+  }  
+
+  function editOrCreateBankAccount(body, token) {
+
+    if (body.id !== null) {
+      return server.post("/bank_account/" + body.id, body, {
+        headers: {
+          Authorization: token
+        }
+      });
+    }
+
+    return server.post("/bank_account", body, {
+      headers: {
+        Authorization: token
+      }
+    });
+  }
+
+  function deleteBankAccount(token, id) {
+    return server.delete("/bank_account/" + id, {
+      headers: {
+        Authorization: token
+      }
+    });
+  }  
 
   return {
     getUser,
     getHistory,
-    getUserBankAccounts
+    getUserBankAccounts,
+    getBankAccount,
+    editOrCreateBankAccount,
+    deleteBankAccount
   };
 })();
 

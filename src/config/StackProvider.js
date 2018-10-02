@@ -11,6 +11,8 @@ import PayReceipt from '../views/PayReceipt';
 import WithdrawalForm from '../views/WithdrawalForm';
 import WithdrawalConfirm from '../views/WithdrawalConfirm';
 import HistoryScreen from '../views/HistoryScreen';
+import BankAccountScreen from '../views/BankAccountScreen';
+import BankAccountForm from '../views/BankAccountForm';
 
 const RootStack = createStackNavigator(
     {
@@ -26,6 +28,8 @@ const RootStack = createStackNavigator(
         WithdrawalForm: WithdrawalForm,
         WithdrawalConfirm: WithdrawalConfirm,
         HistoryScreen: HistoryScreen,
+        BankAccountScreen: BankAccountScreen,
+        BankAccountForm: BankAccountForm,
     },
     {
         initialRouteName: 'Login',

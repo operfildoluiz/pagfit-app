@@ -14,7 +14,7 @@ export default class HistoryScreen extends Component {
             headerStyle: {
                 backgroundColor: '#0B8B40',
             },
-            headerTitle: configApp.getTag('header_dashboard'),
+            headerTitle: configApp.getTag('header_history'),
         };
     };
 
