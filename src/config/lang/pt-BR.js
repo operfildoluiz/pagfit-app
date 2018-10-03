@@ -9,6 +9,8 @@ const lang = {
     lbl_limit: 'Limite de recebimento',
     lbl_pincode: 'Pincode',
     lbl_name: 'Nome',
+    lbl_email: 'Email',
+    lbl_mobile_number: 'Número de celular',
     lbl_bank_account: 'Conta bancária',
     lbl_city_state: 'Cidade/UF',
     lbl_get_last_days: 'Capturar em dias',

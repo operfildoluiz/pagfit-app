@@ -42,7 +42,7 @@ export default class Login extends Component {
                 <Image source={require('./../assets/logo.png')} />
 
                 <Text style={styles.label}>{configApp.getTag('lbl_cpf')}:</Text>
-                <TextInput value={this.state.cpf} style={styles.input} underlineColorAndroid="transparent" onChangeText={(e) => this.setState({ cpf: e })} keyboardType="number-pad" />
+                <TextInput  keyboardType="numeric" value={this.state.cpf} style={styles.input} underlineColorAndroid="transparent" onChangeText={(e) => this.setState({ cpf: e })} keyboardType="number-pad" />
 
                 <Text style={styles.label}>{configApp.getTag('lbl_password')}:</Text>
                 <TextInput value={this.state.password} secureTextEntry={true} style={styles.input} underlineColorAndroid="transparent" onChangeText={(e) => this.setState({ password: e })} textContentType="password" />
@@ -58,7 +58,7 @@ export default class Login extends Component {
                 <View style={styles.button}>
                     <Button
                         title={configApp.getTag('btn_create_account')}
-                        onPress={() => this.handleSubmit()}
+                        onPress={() => this.props.navigation.navigate('CreateAccount')}
                         color="#0B8B40"
                     />
                 </View>

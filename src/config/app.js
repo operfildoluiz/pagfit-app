@@ -3,7 +3,7 @@ import languages from "./helper/languages";
 const FALLBACK_LANG = 'pt-BR';
 
 const configApp = {
-    loginRedirect: 'BankAccountScreen',
+    loginRedirect: 'Dashboard',
     endpoint: {
         api: "http://192.168.0.22:8000/api"
     },

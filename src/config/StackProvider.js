@@ -13,10 +13,12 @@ import WithdrawalConfirm from '../views/WithdrawalConfirm';
 import HistoryScreen from '../views/HistoryScreen';
 import BankAccountScreen from '../views/BankAccountScreen';
 import BankAccountForm from '../views/BankAccountForm';
+import CreateAccount from '../views/CreateAccount';
 
 const RootStack = createStackNavigator(
     {
         Login: Login,
+        CreateAccount: CreateAccount,
         Dashboard: Dashboard,
         ChargeForm: ChargeForm,
         ChargeConfirm: ChargeConfirm,

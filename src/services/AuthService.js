@@ -5,8 +5,13 @@ const AuthService = (() => {
     return server.post("/login", credentials);
   }
 
+  function register(obj) {
+    return server.post("/register", obj);
+  }
+
   return {
-    login
+    login,
+    register
   };
 })();
 
