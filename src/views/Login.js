@@ -11,8 +11,8 @@ export default class Login extends Component {
     }
 
     state = {
-        cpf: '00000000001',
-        password: '123123'
+        cpf: '',
+        password: ''
     };
 
     handleSubmit() {

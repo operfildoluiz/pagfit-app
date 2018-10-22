@@ -56,6 +56,8 @@ const lang = {
 
     fback_ops: 'Ops! Algo inesperado aconteceu',
     fback_invalid_credentials: 'Suas credenciais são inválidas',
+    fback_invalid_password: 'Senha inválida',
+    fback_not_enough_balance: 'Saldo insuficiente',
 
     //
     identifier: 'Código de identificação',

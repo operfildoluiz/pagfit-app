@@ -22,7 +22,7 @@ export default class PaylinkForm extends Component {
 
     state = {
         quota: 0,
-        reference: 'teste',
+        reference: '',
         description: 'Pagamento via PagFit',
         limit: '1',
         isOpen: false,

@@ -62,13 +62,13 @@ export default class Payauth extends Component {
                         payauth_token: res.data.data.payauth_token
                     }, result).then(res => {
                         if (res.data.status === "fail") {
-                            alert('Sem saldo suficiente');
+                            configApp.getTag('fback_not_enough_balance')
                         } else {
                             vm.props.navigation.navigate('PayReceipt', { pay: res.data.data });
                         }
                     });
                 } else {
-                    alert('Senha invalida');
+                    configApp.getTag('fback_invalid_password')
                 }
             })
 

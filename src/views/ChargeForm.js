@@ -34,7 +34,7 @@ export default class ChargeForm extends Component {
 
             OpsService.createBillet({
                 quota: cur,
-                date: "00000000"
+                date: new Date().toISOString().slice(0, 10).replace(/-/g, '')
             }, result).then(res => {
                 vm.setState({ quota: 0 });
                 vm.props.navigation.navigate('ChargeConfirm', { billet: res.data.data });
