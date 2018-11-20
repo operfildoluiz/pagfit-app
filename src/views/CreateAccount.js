@@ -40,7 +40,7 @@ export default class CreateAccount extends Component {
             }
         })
         .catch((error) => {
-            console.error(2, error);
+            alert(configApp.getTag('fback_ops'));
         });
 
     }

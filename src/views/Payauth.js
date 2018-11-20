@@ -62,16 +62,15 @@ export default class Payauth extends Component {
                         payauth_token: res.data.data.payauth_token
                     }, result).then(res => {
                         if (res.data.status === "fail") {
-                            configApp.getTag('fback_not_enough_balance')
+                            alert(configApp.getTag('fback_not_enough_balance'))
                         } else {
                             vm.props.navigation.navigate('PayReceipt', { pay: res.data.data });
                         }
                     });
                 } else {
-                    configApp.getTag('fback_invalid_password')
+                    alert(configApp.getTag('fback_invalid_password'))
                 }
             })
-
         });
     }
 
@@ -79,7 +78,12 @@ export default class Payauth extends Component {
         let vm = this;
         AsyncStorage.getItem('bearer', (err, result) => {
             PaylinkService.getPaylink(this.state.paylink, result).then(function (res) {
-                vm.setState({ paylink: res.data.data });
+                if (res.data.data.cause !== undefined) {
+                    alert(configApp.getTag('fback_code_notfound'));
+                    vm.props.navigation.navigate('PaylinkScan');
+                } else {
+                    vm.setState({ paylink: res.data.data });
+                }
             });
         });
     }

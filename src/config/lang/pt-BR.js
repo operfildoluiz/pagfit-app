@@ -58,6 +58,7 @@ const lang = {
     fback_invalid_credentials: 'Suas credenciais são inválidas',
     fback_invalid_password: 'Senha inválida',
     fback_not_enough_balance: 'Saldo insuficiente',
+    fback_code_notfound: 'Código inválido ou expirado',
 
     //
     identifier: 'Código de identificação',

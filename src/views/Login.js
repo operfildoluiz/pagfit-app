@@ -11,8 +11,8 @@ export default class Login extends Component {
     }
 
     state = {
-        cpf: '',
-        password: ''
+        cpf: '10831383917',
+        password: 'g1oq4b4m%'
     };
 
     handleSubmit() {
@@ -30,8 +30,8 @@ export default class Login extends Component {
                 alert(configApp.getTag('fback_invalid_credentials'));
             }
         })
-        .catch((error) => {
-            console.error(2, error);
+        .catch(error => {
+            alert(configApp.getTag('fback_code_notfound'))
         });
     }
 
